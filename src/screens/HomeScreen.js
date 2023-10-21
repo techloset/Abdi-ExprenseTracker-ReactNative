@@ -210,6 +210,10 @@ const styles = StyleSheet.create({
     shadowColor: COLOR.green,
     borderRadius: 1,
   },
+  addImg: {
+    height: pixelSizeVertical(75),
+    width: pixelSizeVertical(75),
+  },
   bottomTabImg: {
     height: pixelSizeVertical(32),
     width: pixelSizeVertical(32),
