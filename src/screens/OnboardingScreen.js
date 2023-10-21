@@ -24,15 +24,7 @@ const OnboardingScreen = ({navigation}) => {
         source={require('../assets/images/onboarding/backgroundImg.png')}>
         <Image
           style={styles.mainImg}
-          source={require('../assets/images/onboarding/man.png')}
-        />
-        <Image
-          style={styles.cointImg}
-          source={require('../assets/images/onboarding/Coint.png')}
-        />
-        <Image
-          style={styles.donutImg}
-          source={require('../assets/images/onboarding/Donut.png')}
+          source={require('../assets/images/onboarding/obn.png')}
         />
       </ImageBackground>
       {/* text */}
@@ -86,20 +78,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: pixelSizeVertical(30.05),
   },
-  cointImg: {
-    position: 'absolute',
-    top: 90,
-    left: 40,
-  },
-  donutImg: {
-    position: 'absolute',
-    top: 140,
-    right: 40,
-  },
   mainImg: {
-    // width: widthPixel(524.14),
-    // height: widthPixel(486.089),
-    position: 'relative',
+    alignSelf: 'center',
+    width: widthPixel(277),
+    height: widthPixel(461),
   },
   backgroundImg: {
     width: widthPixel(414),
