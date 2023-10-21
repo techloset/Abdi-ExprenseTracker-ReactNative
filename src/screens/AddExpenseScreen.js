@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
     borderRadius: widthPixel(8),
     borderColor: COLOR.borderLight,
     borderWidth: widthPixel(1),
-    paddingHorizontal: pixelSizeVertical(20),
+    paddingHorizontal: pixelSizeVertical(14),
     paddingVertical: pixelSizeVertical(9),
     marginBottom: pixelSizeVertical(24),
   },

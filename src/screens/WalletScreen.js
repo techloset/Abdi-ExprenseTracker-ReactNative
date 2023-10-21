@@ -26,8 +26,6 @@ const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 const WalletScreen = ({navigation}) => {
   const [screen, setScreen] = useState('1');
 
-  // console.log('transHistory', transHistory);
-
   return (
     <SafeAreaView style={styles.container}>
       {/* header */}
@@ -37,9 +35,9 @@ const WalletScreen = ({navigation}) => {
             style={styles.topBgImg}
             source={require('../assets/images/topBg.png')}>
             <View style={styles.greetContainer}>
-              <View>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <ChevLeftLightIcon width={28} />
-              </View>
+              </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>Wallet</Text>
               </View>

@@ -23,7 +23,6 @@ const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 const TransactionScreen = ({navigation, route}) => {
   const {item} = route.params;
 
-  console.log('itemId', item);
   return (
     <SafeAreaView style={styles.container}>
       {/* header */}
@@ -33,9 +32,9 @@ const TransactionScreen = ({navigation, route}) => {
             style={styles.topBgImg}
             source={require('../assets/images/topBg.png')}>
             <View style={styles.greetContainer}>
-              <View>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <ChevLeftLightIcon width={28} />
-              </View>
+              </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>Transaction Details</Text>
               </View>

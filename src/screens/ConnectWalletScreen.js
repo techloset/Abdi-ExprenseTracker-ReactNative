@@ -28,8 +28,6 @@ const ConnectWalletScreen = ({navigation}) => {
   const [state, setState] = useState('0');
   const [key, setKey] = useState(false);
 
-  console.log('key', key);
-
   return (
     <SafeAreaView style={styles.container}>
       {/* header */}
@@ -39,9 +37,9 @@ const ConnectWalletScreen = ({navigation}) => {
             style={styles.topBgImg}
             source={require('../assets/images/topBg.png')}>
             <View style={styles.greetContainer}>
-              <View>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <ChevLeftLightIcon width={28} />
-              </View>
+              </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>Connect Wallet</Text>
               </View>

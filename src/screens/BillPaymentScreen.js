@@ -31,9 +31,9 @@ const BillPaymentScreen = ({navigation, route}) => {
             style={styles.topBgImg}
             source={require('../assets/images/topBg.png')}>
             <View style={styles.greetContainer}>
-              <View>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <ChevLeftLightIcon />
-              </View>
+              </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>Bill Payment</Text>
               </View>

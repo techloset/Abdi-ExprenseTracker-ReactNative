@@ -40,9 +40,9 @@ const ProfileScreen = ({navigation}) => {
             style={styles.topBgImg}
             source={require('../assets/images/topBg.png')}>
             <View style={styles.greetContainer}>
-              <View>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <ChevLeftLightIcon width={28} />
-              </View>
+              </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>Profile</Text>
               </View>

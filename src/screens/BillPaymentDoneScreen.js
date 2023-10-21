@@ -9,10 +9,9 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import ratio from '../styles/consts/ratio';
 import {COLOR, FONT_FAMILY} from '../styles/consts/GlobalStyles';
-import GradientBtn from '../component/GradientBtn';
 // svgs
 import ChevLeftLightIcon from '../assets/images/Icon/chevLeftLight.svg';
 import DotsIcon from '../assets/images/Icon/dots.svg';
@@ -35,9 +34,9 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
             style={styles.topBgImg}
             source={require('../assets/images/topBg.png')}>
             <View style={styles.greetContainer}>
-              <View>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <ChevLeftLightIcon />
-              </View>
+              </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>Bill Payment</Text>
               </View>
@@ -120,7 +119,7 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
           <SimpleBtn
             navigation={navigation}
             btnTextData={'Share Receipt'}
-            target={'BillPaymentDone'}
+            target={'Wallet'}
           />
         </ScrollView>
       </View>
