@@ -195,6 +195,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: pixelSizeVertical(20),
     borderRadius: widthPixel(20),
     marginBottom: pixelSizeVertical(30),
+    alignSelf: 'center',
   },
   optionGreen: {
     flexDirection: 'row',
@@ -205,6 +206,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.lightGreen,
     paddingHorizontal: pixelSizeVertical(20),
     borderRadius: widthPixel(20),
+    alignSelf: 'center',
   },
   heading: {
     fontFamily: FONT_FAMILY.interMedium,
