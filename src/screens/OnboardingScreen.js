@@ -24,7 +24,7 @@ const OnboardingScreen = ({navigation}) => {
         source={require('../assets/images/onboarding/backgroundImg.png')}>
         <Image
           style={styles.mainImg}
-          source={require('../assets/images/onboarding/obn.png')}
+          source={require('../assets/images/onboarding/man.png')}
         />
       </ImageBackground>
       {/* text */}
