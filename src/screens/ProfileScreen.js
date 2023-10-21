@@ -90,7 +90,7 @@ const ProfileScreen = ({navigation}) => {
         <View style={styles.bottomTab}>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Home');
             }}>
             <Image
@@ -100,7 +100,7 @@ const ProfileScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Statistics');
             }}>
             <Image
@@ -110,7 +110,7 @@ const ProfileScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Wallet');
             }}>
             <Image
@@ -120,7 +120,7 @@ const ProfileScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Profile');
             }}>
             <Image

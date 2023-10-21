@@ -144,7 +144,7 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.bottomTab}>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Home');
             }}>
             <Image
@@ -154,7 +154,7 @@ const HomeScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Statistics');
             }}>
             <Image
@@ -177,7 +177,7 @@ const HomeScreen = ({navigation}) => {
           </View>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Wallet');
             }}>
             <Image
@@ -187,7 +187,7 @@ const HomeScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Profile');
             }}>
             <Image

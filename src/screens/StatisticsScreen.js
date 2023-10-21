@@ -180,7 +180,7 @@ const StatisticsScreen = ({navigation}) => {
         <View style={styles.bottomTab}>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Home');
             }}>
             <Image
@@ -190,7 +190,7 @@ const StatisticsScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Statistics');
             }}>
             <Image
@@ -200,7 +200,7 @@ const StatisticsScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Wallet');
             }}>
             <Image
@@ -210,7 +210,7 @@ const StatisticsScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Profile');
             }}>
             <Image

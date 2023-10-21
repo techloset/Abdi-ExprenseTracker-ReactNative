@@ -119,7 +119,7 @@ const BillDetailsScreen = ({navigation, route}) => {
         <View style={styles.bottomTab}>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Home');
             }}>
             <Image
@@ -129,7 +129,7 @@ const BillDetailsScreen = ({navigation, route}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Statistics');
             }}>
             <Image
@@ -139,7 +139,7 @@ const BillDetailsScreen = ({navigation, route}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Wallet');
             }}>
             <Image
@@ -149,7 +149,7 @@ const BillDetailsScreen = ({navigation, route}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Profile');
             }}>
             <Image

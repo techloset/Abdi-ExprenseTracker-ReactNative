@@ -34,7 +34,7 @@ const AddExpenseScreen = ({navigation}) => {
             style={styles.topBgImg}
             source={require('../assets/images/topBg.png')}>
             <View style={styles.greetContainer}>
-              <TouchableOpacity onPressIn={() => navigation.goBack()}>
+              <TouchableOpacity onPress={() => navigation.goBack()}>
                 <ChevLeftLightIcon width={28} />
               </TouchableOpacity>
               <View>

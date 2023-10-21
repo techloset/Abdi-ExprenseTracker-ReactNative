@@ -59,7 +59,7 @@ const WalletScreen = ({navigation}) => {
         <View style={styles.options_Container}>
           <View style={styles.option_Container}>
             <TouchableOpacity
-              onPressIn={() => navigation.navigate('AddExpense')}
+              onPress={() => navigation.navigate('AddExpense')}
               style={styles.optionContainer}>
               <AddIcon />
             </TouchableOpacity>
@@ -67,7 +67,7 @@ const WalletScreen = ({navigation}) => {
           </View>
           <View style={styles.option_Container}>
             <TouchableOpacity
-              onPressIn={() => navigation.navigate('ConnectWallet')}
+              onPress={() => navigation.navigate('ConnectWallet')}
               style={styles.optionContainer}>
               <QrIcon />
             </TouchableOpacity>
@@ -84,7 +84,7 @@ const WalletScreen = ({navigation}) => {
 
         <View style={styles.filterContainer}>
           <TouchableOpacity
-            onPressIn={() => setScreen('1')}
+            onPress={() => setScreen('1')}
             style={
               screen === '1'
                 ? [styles.filter, {backgroundColor: COLOR.white}]
@@ -93,7 +93,7 @@ const WalletScreen = ({navigation}) => {
             <Text style={styles.filterText}>Transactions</Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPressIn={() => setScreen('2')}
+            onPress={() => setScreen('2')}
             style={
               screen === '2'
                 ? [styles.filter, {backgroundColor: COLOR.white}]
@@ -185,7 +185,7 @@ const WalletScreen = ({navigation}) => {
         <View style={styles.bottomTab}>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Home');
             }}>
             <Image
@@ -195,7 +195,7 @@ const WalletScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Statistics');
             }}>
             <Image
@@ -205,7 +205,7 @@ const WalletScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Wallet');
             }}>
             <Image
@@ -215,7 +215,7 @@ const WalletScreen = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             style={{padding: pixelSizeVertical(10)}}
-            onPressIn={() => {
+            onPress={() => {
               navigation.navigate('Profile');
             }}>
             <Image
