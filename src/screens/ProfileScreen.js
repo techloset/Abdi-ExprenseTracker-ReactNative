@@ -19,7 +19,31 @@ import EnvelopeIcon from '../assets/images/Icon/envelope.svg';
 import ShieldIcon from '../assets/images/Icon/shield.svg';
 import LockIcon from '../assets/images/Icon/lock.svg';
 import ChevLeftLightIcon from '../assets/images/Icon/chevLeftLight.svg';
+import HomeIcon from '../assets/images/Icon/home.svg';
+import StatisticIcon from '../assets/images/Icon/stats.svg';
+import WalletIcon from '../assets/images/Icon/wallet.svg';
+import ProfileIcon from '../assets/images/Icon/profileFill.svg';
+// static
 import SCREENS from '../library/const/SCREENS';
+
+const BottomTabData = [
+  {
+    svg: <HomeIcon width={35} />,
+    target: SCREENS.HOME,
+  },
+  {
+    svg: <StatisticIcon width={35} />,
+    target: SCREENS.STATISTICS,
+  },
+  {
+    svg: <WalletIcon width={35} />,
+    target: SCREENS.WALLET,
+  },
+  {
+    svg: <ProfileIcon width={35} />,
+    target: SCREENS.PROFILE,
+  },
+];
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 const ProfileScreen = ({navigation}) => {
@@ -87,47 +111,21 @@ const ProfileScreen = ({navigation}) => {
       {/* header */}
       {/* bottomNav */}
       <View style={styles.bottomTabContainer}>
-        <View style={styles.bottomTab}>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.HOME);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/home.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.STATISTICS);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/bar.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.WALLET);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/wallet.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.PROFILE);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/userFill.png')}
-            />
-          </TouchableOpacity>
+        <View style={styles.bottomTabContainer}>
+          <View style={styles.bottomTab}>
+            {BottomTabData.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  style={styles.paddingTen}
+                  onPress={() => {
+                    navigation.navigate(item.target);
+                  }}>
+                  {item.svg}
+                </TouchableOpacity>
+              );
+            })}
+          </View>
         </View>
       </View>
       {/* bottomNav */}

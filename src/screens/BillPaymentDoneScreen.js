@@ -19,6 +19,7 @@ import ChevUpDarkIcon from '../assets/images/Icon/chevUpDark.svg';
 import CopyIcon from '../assets/images/Icon/copy.svg';
 import SimpleBtn from '../component/SimpleBtn';
 import SCREENS from '../library/const/SCREENS';
+import WalletScreenBottomTab from '../component/WalletScreenBottomTab';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
@@ -29,23 +30,19 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
     <SafeAreaView style={styles.container}>
       {/* header */}
       <View style={styles.topBgContainer}>
-        <View>
-          <ImageBackground
-            style={styles.topBgImg}
-            source={require('../assets/images/topBg.png')}>
-            <View style={styles.greetContainer}>
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <ChevLeftLightIcon />
-              </TouchableOpacity>
-              <View>
-                <Text style={styles.headerText}>Bill Payment</Text>
-              </View>
-              <TouchableOpacity>
-                <DotsIcon />
-              </TouchableOpacity>
-            </View>
-          </ImageBackground>
-        </View>
+        <ImageBackground
+          style={styles.topBgImg}
+          source={require('../assets/images/topBg.png')}>
+          <View style={styles.greetContainer}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <ChevLeftLightIcon />
+            </TouchableOpacity>
+            <Text style={styles.headerText}>Bill Payment</Text>
+            <TouchableOpacity>
+              <DotsIcon />
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
       </View>
       {/* header */}
 
@@ -66,9 +63,7 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
 
           <View style={styles.transHeader}>
             <Text style={styles.transText}>Transaction Details</Text>
-            <View>
-              <ChevUpDarkIcon width={20} />
-            </View>
+            <ChevUpDarkIcon width={20} />
           </View>
 
           {/* info */}
@@ -119,7 +114,7 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
           <SimpleBtn
             navigation={navigation}
             btnTextData={'Share Receipt'}
-            target={'Wallet'}
+            target={SCREENS.WALLET}
           />
         </ScrollView>
       </View>
@@ -128,46 +123,18 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
       {/* bottomNav */}
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.HOME);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/home.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.STATISTICS);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/bar.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.WALLET);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/walletFill.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.PROFILE);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/user.png')}
-            />
-          </TouchableOpacity>
+          {WalletScreenBottomTab.map((item, index) => {
+            return (
+              <TouchableOpacity
+                key={index}
+                style={styles.paddingTen}
+                onPress={() => {
+                  navigation.navigate(item.target);
+                }}>
+                {item.svg}
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
       {/* bottomNav */}

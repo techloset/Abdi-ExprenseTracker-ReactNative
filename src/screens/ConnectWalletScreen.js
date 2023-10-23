@@ -12,7 +12,6 @@ import {
 import React, {useState} from 'react';
 import ratio from '../styles/consts/ratio';
 import {COLOR, FONT_FAMILY} from '../styles/consts/GlobalStyles';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 // svgs
 import BellIcon from '../assets/images/Icon/bell.svg';
@@ -20,6 +19,7 @@ import ChevLeftLightIcon from '../assets/images/Icon/chevLeftLight.svg';
 import accounts from '../library/const/Accounts';
 import SimpleBtn from '../component/SimpleBtn';
 import SCREENS from '../library/const/SCREENS';
+import WalletScreenBottomTab from '../component/WalletScreenBottomTab';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
@@ -272,7 +272,7 @@ const ConnectWalletScreen = ({navigation}) => {
                 <SimpleBtn
                   navigation={navigation}
                   btnTextData={'Next'}
-                  target={'Wallet'}
+                  target={SCREENS.WALLET}
                 />
               </View>
             </View>
@@ -285,46 +285,18 @@ const ConnectWalletScreen = ({navigation}) => {
       {!key && (
         <View style={styles.bottomTabContainer}>
           <View style={styles.bottomTab}>
-            <TouchableOpacity
-              style={{padding: pixelSizeVertical(10)}}
-              onPressIn={() => {
-                navigation.navigate(SCREENS.HOME);
-              }}>
-              <Image
-                style={styles.bottomTabImg}
-                source={require('../assets/images/bottomTab/home.png')}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{padding: pixelSizeVertical(10)}}
-              onPressIn={() => {
-                navigation.navigate(SCREENS.STATISTICS);
-              }}>
-              <Image
-                style={styles.bottomTabImg}
-                source={require('../assets/images/bottomTab/bar.png')}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{padding: pixelSizeVertical(10)}}
-              onPressIn={() => {
-                navigation.navigate(SCREENS.WALLET);
-              }}>
-              <Image
-                style={styles.bottomTabImg}
-                source={require('../assets/images/bottomTab/walletFill.png')}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{padding: pixelSizeVertical(10)}}
-              onPressIn={() => {
-                navigation.navigate(SCREENS.PROFILE);
-              }}>
-              <Image
-                style={styles.bottomTabImg}
-                source={require('../assets/images/bottomTab/user.png')}
-              />
-            </TouchableOpacity>
+            {WalletScreenBottomTab.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  style={styles.paddingTen}
+                  onPress={() => {
+                    navigation.navigate(item.target);
+                  }}>
+                  {item.svg}
+                </TouchableOpacity>
+              );
+            })}
           </View>
         </View>
       )}

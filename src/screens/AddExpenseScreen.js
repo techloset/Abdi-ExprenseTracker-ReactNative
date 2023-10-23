@@ -44,70 +44,60 @@ const AddExpenseScreen = ({navigation}) => {
 
       {/* main */}
       <View style={styles.mainContainer}>
-        <View>
-          <Text style={styles.labelText}>Name</Text>
-          <TouchableOpacity style={styles.selectContainer}>
-            <View style={styles.netflixImageContainer}>
-              <Image source={require('../assets/images/netflix.png')} />
-            </View>
-            <View>
-              <ChevDownDarkIcon />
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View>
-          <Text style={styles.labelText}>amount</Text>
-          <View
+        <Text style={styles.labelText}>Name</Text>
+        <TouchableOpacity style={styles.selectContainer}>
+          <View style={styles.netflixImageContainer}>
+            <Image source={require('../assets/images/netflix.png')} />
+          </View>
+          <ChevDownDarkIcon />
+        </TouchableOpacity>
+        <Text style={styles.labelText}>amount</Text>
+        <View
+          style={
+            state === '1'
+              ? styles.textInputContainerHovered
+              : styles.textInputContainer
+          }>
+          <TextInput
+            onFocus={() => setState('1')}
+            onBlur={() => setState('0')}
+            style={styles.textInput}
+            keyboardType="numeric"
+            placeholder="$ 48.00"
+            placeholderTextColor={state === '1' ? COLOR.green : COLOR.lowDark}
+            maxLength={10}
+          />
+          <Text
             style={
               state === '1'
-                ? styles.textInputContainerHovered
-                : styles.textInputContainer
+                ? [styles.inputText, {color: COLOR.green}]
+                : styles.inputText
             }>
-            <TextInput
-              onFocus={() => setState('1')}
-              onBlur={() => setState('0')}
-              style={styles.textInput}
-              keyboardType="numeric"
-              placeholder="$ 48.00"
-              placeholderTextColor={state === '1' ? COLOR.green : COLOR.lowDark}
-              maxLength={10}
-            />
-            <Text
-              style={
-                state === '1'
-                  ? [styles.inputText, {color: COLOR.green}]
-                  : styles.inputText
-              }>
-              Clear
-            </Text>
-          </View>
+            Clear
+          </Text>
         </View>
-        <View>
-          <Text style={styles.labelText}>Date</Text>
-          <View
-            style={
-              state === '2'
-                ? styles.textInputContainerHovered
-                : styles.textInputContainer
-            }>
-            <TextInput
-              onFocus={() => setState('2')}
-              onBlur={() => setState('0')}
-              style={styles.textInput}
-              placeholder="Tue, 22 Feb 2022"
-              placeholderTextColor={state === '2' ? COLOR.green : COLOR.lowDark}
-              maxLength={20}
-            />
-            {state === '2' ? <CalendarGreenIcon /> : <CalendarIcon />}
-          </View>
+        <Text style={styles.labelText}>Date</Text>
+        <View
+          style={
+            state === '2'
+              ? styles.textInputContainerHovered
+              : styles.textInputContainer
+          }>
+          <TextInput
+            onFocus={() => setState('2')}
+            onBlur={() => setState('0')}
+            style={styles.textInput}
+            placeholder="Tue, 22 Feb 2022"
+            placeholderTextColor={state === '2' ? COLOR.green : COLOR.lowDark}
+            maxLength={20}
+          />
+          {state === '2' ? <CalendarGreenIcon /> : <CalendarIcon />}
         </View>
-        <View>
-          <Text style={styles.labelText}>Invoice</Text>
-          <TouchableOpacity style={styles.invoiceContainer}>
-            <PlusCircleIcon />
-            <Text style={styles.inputText}>Add Invoice</Text>
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.labelText}>Invoice</Text>
+        <TouchableOpacity style={styles.invoiceContainer}>
+          <PlusCircleIcon />
+          <Text style={styles.inputText}>Add Invoice</Text>
+        </TouchableOpacity>
       </View>
       {/* main */}
     </SafeAreaView>
@@ -136,6 +126,7 @@ const styles = StyleSheet.create({
     fontFamily: FONT_FAMILY.interMedium,
     fontSize: fontPixel(12),
     textTransform: 'capitalize',
+    color: COLOR.lowDark,
   },
   labelText: {
     fontFamily: FONT_FAMILY.interMedium,

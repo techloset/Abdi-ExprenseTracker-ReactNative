@@ -23,6 +23,25 @@ import PaperPlaneIcon from '../assets/images/Icon/paperPlane.svg';
 import WalletScreenBottomTab from '../component/WalletScreenBottomTab';
 import SCREENS from '../library/const/SCREENS';
 
+// const WalletScreenBottomTab = [
+//   {
+//     svg: <HomeIcon width={35} />,
+//     target: SCREENS.HOME,
+//   },
+//   {
+//     svg: <StatisticIcon width={35} />,
+//     target: SCREENS.STATISTICS,
+//   },
+//   {
+//     svg: <WalletFillIcon width={35} />,
+//     target: SCREENS.WALLET,
+//   },
+//   {
+//     svg: <ProfileIcon width={35} />,
+//     target: SCREENS.PROFILE,
+//   },
+// ];
+
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 const WalletScreen = ({navigation}) => {
   const [screen, setScreen] = useState('1');
@@ -185,46 +204,18 @@ const WalletScreen = ({navigation}) => {
       {/* bottomNav */}
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.HOME);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/home.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.STATISTICS);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/bar.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.WALLET);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/walletFill.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.PROFILE);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/user.png')}
-            />
-          </TouchableOpacity>
+          {WalletScreenBottomTab.map((item, index) => {
+            return (
+              <TouchableOpacity
+                key={index}
+                style={styles.paddingTen}
+                onPress={() => {
+                  navigation.navigate(item.target);
+                }}>
+                {item.svg}
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
       {/* bottomNav */}
@@ -415,11 +406,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLOR.white,
     flex: 1,
-  },
-
-  bottomTabImg: {
-    height: pixelSizeVertical(32),
-    width: pixelSizeVertical(32),
   },
   bottomTab: {
     height: pixelSizeVertical(80),

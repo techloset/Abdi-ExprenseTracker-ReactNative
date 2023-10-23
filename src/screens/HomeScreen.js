@@ -20,6 +20,11 @@ import DotsIcon from '../assets/images/Icon/dots.svg';
 import ChevUpLightIcon from '../assets/images/Icon/chevUpLight.svg';
 import ArrowUpLight from '../assets/images/Icon/arrowUpLight.svg';
 import ArrowDownLight from '../assets/images/Icon/arrowDownLight.svg';
+import HomeIcon from '../assets/images/Icon/homeFill.svg';
+import StatisticIcon from '../assets/images/Icon/stats.svg';
+import WalletIcon from '../assets/images/Icon/wallet.svg';
+import ProfileIcon from '../assets/images/Icon/profile.svg';
+
 import SCREENS from '../library/const/SCREENS';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
@@ -148,24 +153,17 @@ const HomeScreen = ({navigation}) => {
             onPress={() => {
               navigation.navigate(SCREENS.HOME);
             }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/homeFill.png')}
-            />
+            <HomeIcon />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
               navigation.navigate(SCREENS.STATISTICS);
             }}>
-            <Image
-              style={[
-                styles.bottomTabImg,
-                {
-                  marginRight: pixelSizeVertical(10),
-                },
-              ]}
-              source={require('../assets/images/bottomTab/bar.png')}
+            <StatisticIcon
+              style={{
+                marginRight: pixelSizeVertical(10),
+              }}
             />
           </TouchableOpacity>
           <View>
@@ -181,20 +179,14 @@ const HomeScreen = ({navigation}) => {
             onPress={() => {
               navigation.navigate(SCREENS.WALLET);
             }}>
-            <Image
-              style={[styles.bottomTabImg, {marginLeft: pixelSizeVertical(10)}]}
-              source={require('../assets/images/bottomTab/wallet.png')}
-            />
+            <WalletIcon style={{marginLeft: pixelSizeVertical(10)}} />
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
               navigation.navigate(SCREENS.PROFILE);
             }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/user.png')}
-            />
+            <ProfileIcon />
           </TouchableOpacity>
         </View>
       </View>
@@ -217,10 +209,6 @@ const styles = StyleSheet.create({
   addImg: {
     height: pixelSizeVertical(75),
     width: pixelSizeVertical(75),
-  },
-  bottomTabImg: {
-    height: pixelSizeVertical(32),
-    width: pixelSizeVertical(32),
   },
   bottomTab: {
     height: pixelSizeVertical(80),

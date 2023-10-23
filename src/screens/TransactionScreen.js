@@ -17,6 +17,7 @@ import ChevLeftLightIcon from '../assets/images/Icon/chevLeftLight.svg';
 import ChevUpDarkIcon from '../assets/images/Icon/chevUpDark.svg';
 import SimpleBtn from '../component/SimpleBtn';
 import SCREENS from '../library/const/SCREENS';
+import WalletScreenBottomTab from '../component/WalletScreenBottomTab';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
@@ -124,7 +125,7 @@ const TransactionScreen = ({navigation, route}) => {
             <SimpleBtn
               navigation={navigation}
               btnTextData={'Download Receipt'}
-              target={'Wallet'}
+              target={SCREENS.WALLET}
             />
           </View>
         </ScrollView>
@@ -134,46 +135,18 @@ const TransactionScreen = ({navigation, route}) => {
       {/* bottomNav */}
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.HOME);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/home.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.STATISTICS);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/bar.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.WALLET);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/walletFill.png')}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.paddingTen}
-            onPress={() => {
-              navigation.navigate(SCREENS.PROFILE);
-            }}>
-            <Image
-              style={styles.bottomTabImg}
-              source={require('../assets/images/bottomTab/user.png')}
-            />
-          </TouchableOpacity>
+          {WalletScreenBottomTab.map((item, index) => {
+            return (
+              <TouchableOpacity
+                key={index}
+                style={styles.paddingTen}
+                onPress={() => {
+                  navigation.navigate(item.target);
+                }}>
+                {item.svg}
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
       {/* bottomNav */}
