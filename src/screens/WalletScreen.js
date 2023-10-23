@@ -20,27 +20,8 @@ import ChevLeftLightIcon from '../assets/images/Icon/chevLeftLight.svg';
 import AddIcon from '../assets/images/Icon/add.svg';
 import QrIcon from '../assets/images/Icon/qr.svg';
 import PaperPlaneIcon from '../assets/images/Icon/paperPlane.svg';
-import WalletScreenBottomTab from '../component/WalletScreenBottomTab';
 import SCREENS from '../library/const/SCREENS';
-
-// const WalletScreenBottomTab = [
-//   {
-//     svg: <HomeIcon width={35} />,
-//     target: SCREENS.HOME,
-//   },
-//   {
-//     svg: <StatisticIcon width={35} />,
-//     target: SCREENS.STATISTICS,
-//   },
-//   {
-//     svg: <WalletFillIcon width={35} />,
-//     target: SCREENS.WALLET,
-//   },
-//   {
-//     svg: <ProfileIcon width={35} />,
-//     target: SCREENS.PROFILE,
-//   },
-// ];
+import WalletScreenBottomTab from '../component/WalletScreenBottomTab';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 const WalletScreen = ({navigation}) => {
@@ -200,24 +181,8 @@ const WalletScreen = ({navigation}) => {
       </View>
       {/* main */}
 
-      {/* <WalletScreenBottomTab /> */}
       {/* bottomNav */}
-      <View style={styles.bottomTabContainer}>
-        <View style={styles.bottomTab}>
-          {WalletScreenBottomTab.map((item, index) => {
-            return (
-              <TouchableOpacity
-                key={index}
-                style={styles.paddingTen}
-                onPress={() => {
-                  navigation.navigate(item.target);
-                }}>
-                {item.svg}
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </View>
+      <WalletScreenBottomTab />
       {/* bottomNav */}
     </SafeAreaView>
   );

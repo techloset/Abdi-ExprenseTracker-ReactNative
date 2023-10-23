@@ -111,21 +111,19 @@ const ProfileScreen = ({navigation}) => {
       {/* header */}
       {/* bottomNav */}
       <View style={styles.bottomTabContainer}>
-        <View style={styles.bottomTabContainer}>
-          <View style={styles.bottomTab}>
-            {BottomTabData.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  key={index}
-                  style={styles.paddingTen}
-                  onPress={() => {
-                    navigation.navigate(item.target);
-                  }}>
-                  {item.svg}
-                </TouchableOpacity>
-              );
-            })}
-          </View>
+        <View style={styles.bottomTab}>
+          {BottomTabData.map((item, index) => {
+            return (
+              <TouchableOpacity
+                key={index}
+                style={styles.paddingTen}
+                onPress={() => {
+                  navigation.navigate(item.target);
+                }}>
+                {item.svg}
+              </TouchableOpacity>
+            );
+          })}
         </View>
       </View>
       {/* bottomNav */}

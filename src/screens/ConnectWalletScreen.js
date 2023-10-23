@@ -227,7 +227,9 @@ const ConnectWalletScreen = ({navigation}) => {
                         index == radio
                           ? [
                               styles.accountTab,
-                              {backgroundColor: COLOR.lightGreen},
+                              {
+                                backgroundColor: COLOR.lightGreen,
+                              },
                             ]
                           : styles.accountTab
                       }>
@@ -236,7 +238,10 @@ const ConnectWalletScreen = ({navigation}) => {
                           index == radio
                             ? [
                                 styles.accountImage,
-                                {backgroundColor: COLOR.white},
+                                {
+                                  backgroundColor: COLOR.white,
+                                  borderRadius: widthPixel(60),
+                                },
                               ]
                             : styles.accountImage
                         }>
@@ -282,24 +287,7 @@ const ConnectWalletScreen = ({navigation}) => {
       {/* main */}
 
       {/* bottomNav */}
-      {!key && (
-        <View style={styles.bottomTabContainer}>
-          <View style={styles.bottomTab}>
-            {WalletScreenBottomTab.map((item, index) => {
-              return (
-                <TouchableOpacity
-                  key={index}
-                  style={styles.paddingTen}
-                  onPress={() => {
-                    navigation.navigate(item.target);
-                  }}>
-                  {item.svg}
-                </TouchableOpacity>
-              );
-            })}
-          </View>
-        </View>
-      )}
+      {!key && <WalletScreenBottomTab />}
       {/* bottomNav */}
     </SafeAreaView>
   );
@@ -330,7 +318,6 @@ const styles = StyleSheet.create({
     height: widthPixel(60),
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: widthPixel(60),
   },
   accountTab: {
     flexDirection: 'row',

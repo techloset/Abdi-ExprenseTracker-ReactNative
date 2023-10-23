@@ -26,7 +26,7 @@ const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
 const BillDetailsScreen = ({navigation, route}) => {
   const {item} = route.params;
-  const [radio, setRadio] = useState(0);
+  const [radio, setRadio] = useState(1);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -131,22 +131,7 @@ const BillDetailsScreen = ({navigation, route}) => {
       </View>
       {/* main */}
       {/* bottomNav */}
-      <View style={styles.bottomTabContainer}>
-        <View style={styles.bottomTab}>
-          {WalletScreenBottomTab.map((item, index) => {
-            return (
-              <TouchableOpacity
-                key={index}
-                style={styles.paddingTen}
-                onPress={() => {
-                  navigation.navigate(item.target);
-                }}>
-                {item.svg}
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </View>
+      <WalletScreenBottomTab />
       {/* bottomNav */}
     </SafeAreaView>
   );

@@ -62,8 +62,8 @@ const AddExpenseScreen = ({navigation}) => {
             onFocus={() => setState('1')}
             onBlur={() => setState('0')}
             style={styles.textInput}
-            keyboardType="numeric"
-            placeholder="$ 48.00"
+            keyboardType="number-pad"
+            placeholder="Enter Amount"
             placeholderTextColor={state === '1' ? COLOR.green : COLOR.lowDark}
             maxLength={10}
           />

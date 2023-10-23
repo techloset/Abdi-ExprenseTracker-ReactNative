@@ -121,22 +121,7 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
       {/* main */}
 
       {/* bottomNav */}
-      <View style={styles.bottomTabContainer}>
-        <View style={styles.bottomTab}>
-          {WalletScreenBottomTab.map((item, index) => {
-            return (
-              <TouchableOpacity
-                key={index}
-                style={styles.paddingTen}
-                onPress={() => {
-                  navigation.navigate(item.target);
-                }}>
-                {item.svg}
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </View>
+      <WalletScreenBottomTab />
       {/* bottomNav */}
     </SafeAreaView>
   );

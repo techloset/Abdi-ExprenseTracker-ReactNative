@@ -58,9 +58,9 @@ const HomeScreen = ({navigation}) => {
                   <Text style={styles.totalBalanceText}>Total Balance</Text>
                   <ChevUpLightIcon />
                 </View>
-                <View>
+                <TouchableOpacity>
                   <DotsIcon />
-                </View>
+                </TouchableOpacity>
               </View>
               <Text style={styles.total}>$2548.00</Text>
               <View style={styles.balanceBottom}>
@@ -146,6 +146,7 @@ const HomeScreen = ({navigation}) => {
           })}
         </View>
       </ScrollView>
+      {/* Bottom */}
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
           <TouchableOpacity
@@ -190,6 +191,7 @@ const HomeScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
       </View>
+      {/* Bottom */}
     </SafeAreaView>
   );
 };
@@ -230,6 +232,7 @@ const styles = StyleSheet.create({
     marginTop: pixelSizeVertical(15),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    height: widthPixel(0),
   },
   amount: {
     fontSize: fontPixel(18),

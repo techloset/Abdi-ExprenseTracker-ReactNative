@@ -1,27 +1,58 @@
-import HomeIcon from '../assets/images/Icon/home.svg';
-import StatisticIcon from '../assets/images/Icon/stats.svg';
-import WalletFillIcon from '../assets/images/Icon/walletFill.svg';
-import ProfileIcon from '../assets/images/Icon/profile.svg';
-// static
-import SCREENS from '../library/const/SCREENS';
+import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import React from 'react';
+import ratio from '../styles/consts/ratio';
+import {COLOR} from '../styles/consts/GlobalStyles';
+import WalletScreenBottomTabData from '../library/const/WalletScreenBottomTabData';
 
-const WalletScreenBottomTab = [
-  {
-    svg: <HomeIcon width={35} />,
-    target: SCREENS.HOME,
-  },
-  {
-    svg: <StatisticIcon width={35} />,
-    target: SCREENS.STATISTICS,
-  },
-  {
-    svg: <WalletFillIcon width={35} />,
-    target: SCREENS.WALLET,
-  },
-  {
-    svg: <ProfileIcon width={35} />,
-    target: SCREENS.PROFILE,
-  },
-];
+const {pixelSizeVertical} = ratio;
+
+const WalletScreenBottomTab = () => {
+  const navigation = useNavigation();
+  return (
+    <View style={styles.bottomTabContainer}>
+      <View style={styles.bottomTab}>
+        {WalletScreenBottomTabData.map((item, index) => {
+          return (
+            <TouchableOpacity
+              key={index}
+              style={styles.paddingTen}
+              onPress={() => {
+                navigation.navigate(item.target);
+              }}>
+              {item.svg}
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    </View>
+  );
+};
 
 export default WalletScreenBottomTab;
+
+const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
+  bottomTabImg: {
+    height: pixelSizeVertical(32),
+    width: pixelSizeVertical(32),
+  },
+  bottomTab: {
+    height: pixelSizeVertical(80),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: pixelSizeVertical(22),
+    borderRadius: 1,
+  },
+  bottomTabContainer: {
+    backgroundColor: COLOR.white,
+    elevation: 9,
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+  },
+});
