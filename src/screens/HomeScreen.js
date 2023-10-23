@@ -20,6 +20,7 @@ import DotsIcon from '../assets/images/Icon/dots.svg';
 import ChevUpLightIcon from '../assets/images/Icon/chevUpLight.svg';
 import ArrowUpLight from '../assets/images/Icon/arrowUpLight.svg';
 import ArrowDownLight from '../assets/images/Icon/arrowDownLight.svg';
+import SCREENS from '../library/const/SCREENS';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
@@ -145,7 +146,7 @@ const HomeScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate(SCREENS.HOME);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -155,7 +156,7 @@ const HomeScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Statistics');
+              navigation.navigate(SCREENS.STATISTICS);
             }}>
             <Image
               style={[
@@ -178,7 +179,7 @@ const HomeScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Wallet');
+              navigation.navigate(SCREENS.WALLET);
             }}>
             <Image
               style={[styles.bottomTabImg, {marginLeft: pixelSizeVertical(10)}]}
@@ -188,7 +189,7 @@ const HomeScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Profile');
+              navigation.navigate(SCREENS.PROFILE);
             }}>
             <Image
               style={styles.bottomTabImg}

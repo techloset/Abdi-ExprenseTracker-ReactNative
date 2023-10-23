@@ -18,6 +18,7 @@ import CheckIcon from '../assets/images/Icon/checkFillBig.svg';
 import ChevUpDarkIcon from '../assets/images/Icon/chevUpDark.svg';
 import CopyIcon from '../assets/images/Icon/copy.svg';
 import SimpleBtn from '../component/SimpleBtn';
+import SCREENS from '../library/const/SCREENS';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
@@ -130,7 +131,7 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate(SCREENS.HOME);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -140,7 +141,7 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Statistics');
+              navigation.navigate(SCREENS.STATISTICS);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -150,7 +151,7 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Wallet');
+              navigation.navigate(SCREENS.WALLET);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -160,7 +161,7 @@ const BillPaymentDoneScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Profile');
+              navigation.navigate(SCREENS.PROFILE);
             }}>
             <Image
               style={styles.bottomTabImg}

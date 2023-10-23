@@ -19,6 +19,7 @@ import BooleanFillIcon from '../assets/images/Icon/booleanFill.svg';
 import BooleanIcon from '../assets/images/Icon/boolean.svg';
 import PaypalIcon from '../assets/images/Icon/paypal.svg';
 import GradientBtn from '../component/GradientBtn';
+import SCREENS from '../library/const/SCREENS';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
@@ -142,7 +143,7 @@ const BillDetailsScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate(SCREENS.HOME);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -152,7 +153,7 @@ const BillDetailsScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Statistics');
+              navigation.navigate(SCREENS.STATISTICS);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -162,7 +163,7 @@ const BillDetailsScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Wallet');
+              navigation.navigate(SCREENS.WALLET);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -172,7 +173,7 @@ const BillDetailsScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Profile');
+              navigation.navigate(SCREENS.PROFILE);
             }}>
             <Image
               style={styles.bottomTabImg}

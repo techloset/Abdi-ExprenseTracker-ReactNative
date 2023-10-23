@@ -105,7 +105,7 @@ const BillPaymentScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate(SCREENS.HOME);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -115,7 +115,7 @@ const BillPaymentScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Statistics');
+              navigation.navigate(SCREENS.STATISTICS);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -125,7 +125,7 @@ const BillPaymentScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Wallet');
+              navigation.navigate(SCREENS.WALLET);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -135,7 +135,7 @@ const BillPaymentScreen = ({navigation, route}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Profile');
+              navigation.navigate(SCREENS.PROFILE);
             }}>
             <Image
               style={styles.bottomTabImg}

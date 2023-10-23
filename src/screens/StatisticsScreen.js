@@ -16,6 +16,7 @@ import DownloadIcon from '../assets/images/Icon/download.svg';
 import ChevDownDarkIcon from '../assets/images/Icon/chevDownDark.svg';
 import SortIcon from '../assets/images/Icon/sort.svg';
 import ChevLeftDarkIcon from '../assets/images/Icon/chevLeftDark.svg';
+import SCREENS from '../library/const/SCREENS';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 const StatisticsScreen = ({navigation}) => {
@@ -180,7 +181,7 @@ const StatisticsScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate(SCREENS.HOME);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -190,7 +191,7 @@ const StatisticsScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Statistics');
+              navigation.navigate(SCREENS.STATISTICS);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -200,7 +201,7 @@ const StatisticsScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Wallet');
+              navigation.navigate(SCREENS.WALLET);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -210,7 +211,7 @@ const StatisticsScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Profile');
+              navigation.navigate(SCREENS.PROFILE);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -344,6 +345,7 @@ const styles = StyleSheet.create({
   },
   graphImg: {
     width: widthPixel(388),
+    height: widthPixel(157),
   },
   graphImgContainer: {
     alignItems: 'center',

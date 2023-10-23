@@ -12,8 +12,9 @@ import {
 import React, {useState} from 'react';
 import ratio from '../styles/consts/ratio';
 import {COLOR, FONT_FAMILY} from '../styles/consts/GlobalStyles';
+import SCREENS from '../library/const/SCREENS';
 
-const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
+const {pixelSizeVertical} = ratio;
 
 const WalletScreenBottomTab = ({navigation}) => {
   return (
@@ -22,7 +23,7 @@ const WalletScreenBottomTab = ({navigation}) => {
         <TouchableOpacity
           style={{padding: pixelSizeVertical(10)}}
           onPressIn={() => {
-            navigation.navigate('Home');
+            navigation.navigate(SCREENS.HOME);
           }}>
           <Image
             style={styles.bottomTabImg}
@@ -32,7 +33,7 @@ const WalletScreenBottomTab = ({navigation}) => {
         <TouchableOpacity
           style={{padding: pixelSizeVertical(10)}}
           onPressIn={() => {
-            navigation.navigate('Statistics');
+            navigation.navigate(SCREENS.STATISTICS);
           }}>
           <Image
             style={styles.bottomTabImg}
@@ -42,7 +43,7 @@ const WalletScreenBottomTab = ({navigation}) => {
         <TouchableOpacity
           style={{padding: pixelSizeVertical(10)}}
           onPressIn={() => {
-            navigation.navigate('Wallet');
+            navigation.navigate(SCREENS.WALLET);
           }}>
           <Image
             style={styles.bottomTabImg}
@@ -52,7 +53,7 @@ const WalletScreenBottomTab = ({navigation}) => {
         <TouchableOpacity
           style={{padding: pixelSizeVertical(10)}}
           onPressIn={() => {
-            navigation.navigate('Profile');
+            navigation.navigate(SCREENS.PROFILE);
           }}>
           <Image
             style={styles.bottomTabImg}

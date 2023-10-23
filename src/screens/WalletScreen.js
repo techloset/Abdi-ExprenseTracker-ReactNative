@@ -21,6 +21,7 @@ import AddIcon from '../assets/images/Icon/add.svg';
 import QrIcon from '../assets/images/Icon/qr.svg';
 import PaperPlaneIcon from '../assets/images/Icon/paperPlane.svg';
 import WalletScreenBottomTab from '../component/WalletScreenBottomTab';
+import SCREENS from '../library/const/SCREENS';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 const WalletScreen = ({navigation}) => {
@@ -59,7 +60,7 @@ const WalletScreen = ({navigation}) => {
         <View style={styles.options_Container}>
           <View style={styles.option_Container}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('AddExpense')}
+              onPress={() => navigation.navigate(SCREENS.ADD_EXPENSE)}
               style={styles.optionContainer}>
               <AddIcon />
             </TouchableOpacity>
@@ -67,7 +68,7 @@ const WalletScreen = ({navigation}) => {
           </View>
           <View style={styles.option_Container}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('ConnectWallet')}
+              onPress={() => navigation.navigate(SCREENS.CONNECT_WALLET)}
               style={styles.optionContainer}>
               <QrIcon />
             </TouchableOpacity>
@@ -111,7 +112,7 @@ const WalletScreen = ({navigation}) => {
                   <TouchableOpacity
                     onPress={() => {
                       /* 1. Navigate to the Details route with params */
-                      navigation.navigate('Transaction', {
+                      navigation.navigate(SCREENS.TRANSACTION, {
                         item: item,
                       });
                     }}
@@ -162,7 +163,7 @@ const WalletScreen = ({navigation}) => {
                         style={styles.payBtn}
                         onPress={() => {
                           /* 1. Navigate to the Details route with params */
-                          navigation.navigate('BillDetails', {
+                          navigation.navigate(SCREENS.BILL_DETAILS, {
                             item: item,
                           });
                         }}>
@@ -187,7 +188,7 @@ const WalletScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Home');
+              navigation.navigate(SCREENS.HOME);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -197,7 +198,7 @@ const WalletScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Statistics');
+              navigation.navigate(SCREENS.STATISTICS);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -207,7 +208,7 @@ const WalletScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Wallet');
+              navigation.navigate(SCREENS.WALLET);
             }}>
             <Image
               style={styles.bottomTabImg}
@@ -217,7 +218,7 @@ const WalletScreen = ({navigation}) => {
           <TouchableOpacity
             style={styles.paddingTen}
             onPress={() => {
-              navigation.navigate('Profile');
+              navigation.navigate(SCREENS.PROFILE);
             }}>
             <Image
               style={styles.bottomTabImg}

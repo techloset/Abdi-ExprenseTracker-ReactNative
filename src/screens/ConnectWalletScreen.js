@@ -19,6 +19,7 @@ import BellIcon from '../assets/images/Icon/bell.svg';
 import ChevLeftLightIcon from '../assets/images/Icon/chevLeftLight.svg';
 import accounts from '../library/const/Accounts';
 import SimpleBtn from '../component/SimpleBtn';
+import SCREENS from '../library/const/SCREENS';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
@@ -285,9 +286,9 @@ const ConnectWalletScreen = ({navigation}) => {
         <View style={styles.bottomTabContainer}>
           <View style={styles.bottomTab}>
             <TouchableOpacity
-              style={styles.paddingTen}
-              onPress={() => {
-                navigation.navigate('Home');
+              style={{padding: pixelSizeVertical(10)}}
+              onPressIn={() => {
+                navigation.navigate(SCREENS.HOME);
               }}>
               <Image
                 style={styles.bottomTabImg}
@@ -295,9 +296,9 @@ const ConnectWalletScreen = ({navigation}) => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.paddingTen}
-              onPress={() => {
-                navigation.navigate('Statistics');
+              style={{padding: pixelSizeVertical(10)}}
+              onPressIn={() => {
+                navigation.navigate(SCREENS.STATISTICS);
               }}>
               <Image
                 style={styles.bottomTabImg}
@@ -305,9 +306,9 @@ const ConnectWalletScreen = ({navigation}) => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.paddingTen}
-              onPress={() => {
-                navigation.navigate('Wallet');
+              style={{padding: pixelSizeVertical(10)}}
+              onPressIn={() => {
+                navigation.navigate(SCREENS.WALLET);
               }}>
               <Image
                 style={styles.bottomTabImg}
@@ -315,9 +316,9 @@ const ConnectWalletScreen = ({navigation}) => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.paddingTen}
-              onPress={() => {
-                navigation.navigate('Profile');
+              style={{padding: pixelSizeVertical(10)}}
+              onPressIn={() => {
+                navigation.navigate(SCREENS.PROFILE);
               }}>
               <Image
                 style={styles.bottomTabImg}
