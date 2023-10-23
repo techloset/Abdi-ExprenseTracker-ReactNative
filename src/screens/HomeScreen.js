@@ -143,7 +143,7 @@ const HomeScreen = ({navigation}) => {
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Home');
             }}>
@@ -153,7 +153,7 @@ const HomeScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Statistics');
             }}>
@@ -176,7 +176,7 @@ const HomeScreen = ({navigation}) => {
             </TouchableOpacity>
           </View>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Wallet');
             }}>
@@ -186,7 +186,7 @@ const HomeScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Profile');
             }}>
@@ -204,6 +204,9 @@ const HomeScreen = ({navigation}) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   bottomAddIcon: {
     marginTop: pixelSizeVertical(-60),
     elevation: 20,
@@ -219,14 +222,12 @@ const styles = StyleSheet.create({
     width: pixelSizeVertical(32),
   },
   bottomTab: {
-    // width: pixelSizeVertical(439),
     height: pixelSizeVertical(80),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: pixelSizeVertical(22),
     borderRadius: 1,
-    // backgroundColor: COLOR.red,
   },
   bottomTabContainer: {
     backgroundColor: COLOR.white,
@@ -243,7 +244,6 @@ const styles = StyleSheet.create({
   },
   amount: {
     fontSize: fontPixel(18),
-    // color: COLOR.parrot,
     fontFamily: FONT_FAMILY.interSemiBold,
     letterSpacing: fontPixel(-0.72),
   },

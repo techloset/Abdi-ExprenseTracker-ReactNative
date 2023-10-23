@@ -7,7 +7,6 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  StatusBar,
 } from 'react-native';
 import React, {useState} from 'react';
 import ratio from '../styles/consts/ratio';
@@ -104,7 +103,7 @@ const BillPaymentScreen = ({navigation, route}) => {
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Home');
             }}>
@@ -114,7 +113,7 @@ const BillPaymentScreen = ({navigation, route}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Statistics');
             }}>
@@ -124,7 +123,7 @@ const BillPaymentScreen = ({navigation, route}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Wallet');
             }}>
@@ -134,7 +133,7 @@ const BillPaymentScreen = ({navigation, route}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Profile');
             }}>
@@ -153,6 +152,9 @@ const BillPaymentScreen = ({navigation, route}) => {
 export default BillPaymentScreen;
 
 const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   descText: {
     width: widthPixel(297),
     color: COLOR.black,
@@ -263,14 +265,12 @@ const styles = StyleSheet.create({
     width: pixelSizeVertical(32),
   },
   bottomTab: {
-    // width: pixelSizeVertical(439),
     height: pixelSizeVertical(80),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: pixelSizeVertical(22),
     borderRadius: 1,
-    // backgroundColor: COLOR.red,
   },
   bottomTabContainer: {
     backgroundColor: COLOR.white,

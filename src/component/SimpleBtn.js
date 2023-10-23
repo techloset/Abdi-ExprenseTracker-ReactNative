@@ -9,9 +9,7 @@ const SimpleBtn = ({navigation, btnTextData, target}) => {
     <TouchableOpacity
       style={styles.button}
       onPress={() => navigation.navigate(target)}>
-      <View>
-        <Text style={styles.btnText}>{btnTextData}</Text>
-      </View>
+      <Text style={styles.btnText}>{btnTextData}</Text>
     </TouchableOpacity>
   );
 };

@@ -7,7 +7,6 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  StatusBar,
   TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
@@ -27,6 +26,11 @@ const ConnectWalletScreen = ({navigation}) => {
   const [screen, setScreen] = useState('1');
   const [state, setState] = useState('0');
   const [key, setKey] = useState(false);
+  const [radio, setRadio] = useState(0);
+
+  const handleRadio = index => {
+    setRadio(index);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -215,10 +219,11 @@ const ConnectWalletScreen = ({navigation}) => {
               <View style={styles.accountTabsContainer}>
                 {accounts.map((item, index) => {
                   return (
-                    <View
+                    <TouchableOpacity
+                      onPress={() => handleRadio(index)}
                       key={index}
                       style={
-                        index == 0
+                        index == radio
                           ? [
                               styles.accountTab,
                               {backgroundColor: COLOR.lightGreen},
@@ -227,7 +232,7 @@ const ConnectWalletScreen = ({navigation}) => {
                       }>
                       <View
                         style={
-                          index == 0
+                          index == radio
                             ? [
                                 styles.accountImage,
                                 {backgroundColor: COLOR.white},
@@ -239,7 +244,7 @@ const ConnectWalletScreen = ({navigation}) => {
                       <View>
                         <Text
                           style={
-                            index == 0
+                            index == radio
                               ? [styles.accountTitle, {color: COLOR.green}]
                               : styles.accountTitle
                           }>
@@ -247,17 +252,17 @@ const ConnectWalletScreen = ({navigation}) => {
                         </Text>
                         <Text
                           style={
-                            index == 0
+                            index == radio
                               ? [styles.accountDesc, {color: COLOR.green}]
                               : styles.accountDesc
                           }>
                           {item.desc}
                         </Text>
                       </View>
-                      <View style={index !== 0 && {opacity: 0}}>
+                      <View style={index !== radio && {opacity: 0}}>
                         {item.checkIcon}
                       </View>
-                    </View>
+                    </TouchableOpacity>
                   );
                 })}
               </View>
@@ -280,7 +285,7 @@ const ConnectWalletScreen = ({navigation}) => {
         <View style={styles.bottomTabContainer}>
           <View style={styles.bottomTab}>
             <TouchableOpacity
-              style={{padding: pixelSizeVertical(10)}}
+              style={styles.paddingTen}
               onPress={() => {
                 navigation.navigate('Home');
               }}>
@@ -290,7 +295,7 @@ const ConnectWalletScreen = ({navigation}) => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              style={{padding: pixelSizeVertical(10)}}
+              style={styles.paddingTen}
               onPress={() => {
                 navigation.navigate('Statistics');
               }}>
@@ -300,7 +305,7 @@ const ConnectWalletScreen = ({navigation}) => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              style={{padding: pixelSizeVertical(10)}}
+              style={styles.paddingTen}
               onPress={() => {
                 navigation.navigate('Wallet');
               }}>
@@ -310,7 +315,7 @@ const ConnectWalletScreen = ({navigation}) => {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              style={{padding: pixelSizeVertical(10)}}
+              style={styles.paddingTen}
               onPress={() => {
                 navigation.navigate('Profile');
               }}>
@@ -330,6 +335,9 @@ const ConnectWalletScreen = ({navigation}) => {
 export default ConnectWalletScreen;
 
 const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   buttonContainer: {
     marginTop: pixelSizeVertical(100),
   },
@@ -460,7 +468,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: pixelSizeVertical(10),
     borderRadius: widthPixel(40),
-    // backgroundColor: COLOR.white,
   },
   filterContainer: {
     width: widthPixel(334),
@@ -523,14 +530,12 @@ const styles = StyleSheet.create({
     width: pixelSizeVertical(32),
   },
   bottomTab: {
-    // width: pixelSizeVertical(439),
     height: pixelSizeVertical(80),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: pixelSizeVertical(22),
     borderRadius: 1,
-    // backgroundColor: COLOR.red,
   },
   bottomTabContainer: {
     backgroundColor: COLOR.white,

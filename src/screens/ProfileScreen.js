@@ -7,7 +7,6 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  StatusBar,
 } from 'react-native';
 import React from 'react';
 import ratio from '../styles/consts/ratio';
@@ -63,13 +62,13 @@ const ProfileScreen = ({navigation}) => {
         </View>
       </View>
       <View style={styles.profileOptionsContainerTop}>
-        <View style={styles.profileOptionsTop}>
+        <TouchableOpacity style={styles.profileOptionsTop}>
           <Image
             style={styles.profileOptionsImage}
             source={require('../assets/images/diamond.png')}
           />
           <Text style={styles.profileOptionsText}>Invite Friends</Text>
-        </View>
+        </TouchableOpacity>
         {/* line */}
         <View style={styles.line}></View>
         {/* line */}
@@ -77,10 +76,10 @@ const ProfileScreen = ({navigation}) => {
       <ScrollView contentContainerStyle={styles.profileOptionsContainer}>
         {profileOptionsData.map((item, index) => {
           return (
-            <View key={index} style={styles.profileOptions}>
+            <TouchableOpacity key={index} style={styles.profileOptions}>
               <View>{item.svg}</View>
               <Text style={styles.profileOptionsText}>{item.title}</Text>
-            </View>
+            </TouchableOpacity>
           );
         })}
       </ScrollView>
@@ -89,7 +88,7 @@ const ProfileScreen = ({navigation}) => {
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Home');
             }}>
@@ -99,7 +98,7 @@ const ProfileScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Statistics');
             }}>
@@ -109,7 +108,7 @@ const ProfileScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Wallet');
             }}>
@@ -119,7 +118,7 @@ const ProfileScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Profile');
             }}>
@@ -138,6 +137,9 @@ const ProfileScreen = ({navigation}) => {
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   line: {
     backgroundColor: COLOR.light,
     width: widthPixel(364),
@@ -222,14 +224,12 @@ const styles = StyleSheet.create({
     width: pixelSizeVertical(32),
   },
   bottomTab: {
-    // width: pixelSizeVertical(439),
     height: pixelSizeVertical(80),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: pixelSizeVertical(22),
     borderRadius: 1,
-    // backgroundColor: COLOR.red,
   },
   bottomTabContainer: {
     backgroundColor: COLOR.white,

@@ -7,7 +7,6 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  StatusBar,
 } from 'react-native';
 import React, {useState} from 'react';
 import ratio from '../styles/consts/ratio';
@@ -25,6 +24,7 @@ const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
 const BillDetailsScreen = ({navigation, route}) => {
   const {item} = route.params;
+  const [radio, setRadio] = useState(0);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -85,20 +85,42 @@ const BillDetailsScreen = ({navigation, route}) => {
 
           <View style={styles.optionsContainer}>
             <Text style={styles.heading}>Select payment method</Text>
-            <View style={styles.optionGreen}>
+            <TouchableOpacity
+              onPress={() => setRadio(1)}
+              style={radio == 1 ? styles.optionGreen : styles.option}>
               <View style={styles.optionLeft}>
                 <DebitCardIcon />
-                <Text style={styles.optionGreenText}>Debit Card</Text>
+                <Text
+                  style={
+                    radio == 1 ? styles.optionGreenText : styles.optionText
+                  }>
+                  Debit Card
+                </Text>
               </View>
-              <BooleanFillIcon width={20} />
-            </View>
-            <View style={styles.option}>
+              {radio == 1 ? (
+                <BooleanFillIcon width={20} />
+              ) : (
+                <BooleanIcon width={20} />
+              )}
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setRadio(2)}
+              style={radio !== 1 ? styles.optionGreen : styles.option}>
               <View style={styles.optionLeft}>
                 <PaypalIcon />
-                <Text style={styles.optionText}>Paypal</Text>
+                <Text
+                  style={
+                    radio !== 1 ? styles.optionGreenText : styles.optionText
+                  }>
+                  Paypal
+                </Text>
               </View>
-              <BooleanIcon width={20} />
-            </View>
+              {radio !== 1 ? (
+                <BooleanFillIcon width={20} />
+              ) : (
+                <BooleanIcon width={20} />
+              )}
+            </TouchableOpacity>
           </View>
           {/* options */}
 
@@ -118,7 +140,7 @@ const BillDetailsScreen = ({navigation, route}) => {
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Home');
             }}>
@@ -128,7 +150,7 @@ const BillDetailsScreen = ({navigation, route}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Statistics');
             }}>
@@ -138,7 +160,7 @@ const BillDetailsScreen = ({navigation, route}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Wallet');
             }}>
@@ -148,7 +170,7 @@ const BillDetailsScreen = ({navigation, route}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Profile');
             }}>
@@ -167,13 +189,13 @@ const BillDetailsScreen = ({navigation, route}) => {
 export default BillDetailsScreen;
 
 const styles = StyleSheet.create({
-  // checked: {
-  //   backgroundColor: COLOR.green,
-  // },
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   optionText: {
     fontFamily: FONT_FAMILY.interSemiBold,
     fontSize: fontPixel(16),
-    color: COLOR.green,
+    color: COLOR.lowDark,
   },
   optionGreenText: {
     fontFamily: FONT_FAMILY.interSemiBold,
@@ -194,7 +216,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.light,
     paddingHorizontal: pixelSizeVertical(20),
     borderRadius: widthPixel(20),
-    marginBottom: pixelSizeVertical(30),
     alignSelf: 'center',
   },
   optionGreen: {
@@ -218,6 +239,7 @@ const styles = StyleSheet.create({
   optionsContainer: {
     marginTop: pixelSizeVertical(40),
     gap: pixelSizeVertical(15),
+    marginBottom: pixelSizeVertical(30),
   },
   line: {
     width: widthPixel(354),
@@ -300,7 +322,6 @@ const styles = StyleSheet.create({
     marginTop: pixelSizeVertical(-125),
     borderTopRightRadius: pixelSizeVertical(30),
     borderTopLeftRadius: pixelSizeVertical(30),
-    // padding: pixelSizeVertical(30),
   },
   headerIcon: {
     width: widthPixel(28),
@@ -335,14 +356,12 @@ const styles = StyleSheet.create({
     width: pixelSizeVertical(32),
   },
   bottomTab: {
-    // width: pixelSizeVertical(439),
     height: pixelSizeVertical(80),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: pixelSizeVertical(22),
     borderRadius: 1,
-    // backgroundColor: COLOR.red,
   },
   bottomTabContainer: {
     backgroundColor: COLOR.white,

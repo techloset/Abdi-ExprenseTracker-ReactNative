@@ -3,11 +3,9 @@ import {
   Text,
   View,
   SafeAreaView,
-  ScrollView,
   ImageBackground,
   Image,
   TouchableOpacity,
-  StatusBar,
   TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
@@ -29,97 +27,86 @@ const AddExpenseScreen = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topBgContainer}>
-        <View>
-          <ImageBackground
-            style={styles.topBgImg}
-            source={require('../assets/images/topBg.png')}>
-            <View style={styles.greetContainer}>
-              <TouchableOpacity onPress={() => navigation.goBack()}>
-                <ChevLeftLightIcon width={28} />
-              </TouchableOpacity>
-              <View>
-                <Text style={styles.headerText}>Add Expense</Text>
-              </View>
-              <TouchableOpacity>
-                <DotsIcon />
-              </TouchableOpacity>
-            </View>
-          </ImageBackground>
-        </View>
+        <ImageBackground
+          style={styles.topBgImg}
+          source={require('../assets/images/topBg.png')}>
+          <View style={styles.greetContainer}>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <ChevLeftLightIcon width={28} />
+            </TouchableOpacity>
+            <Text style={styles.headerText}>Add Expense</Text>
+            <TouchableOpacity>
+              <DotsIcon />
+            </TouchableOpacity>
+          </View>
+        </ImageBackground>
       </View>
 
       {/* main */}
-      <View>
-        <View style={styles.mainContainer}>
-          <View>
-            <Text style={styles.labelText}>Name</Text>
-            <TouchableOpacity style={styles.selectContainer}>
-              <View style={styles.netflixImageContainer}>
-                <Image source={require('../assets/images/netflix.png')} />
-              </View>
-              <View>
-                <ChevDownDarkIcon />
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <Text style={styles.labelText}>amount</Text>
-            <View
+      <View style={styles.mainContainer}>
+        <View>
+          <Text style={styles.labelText}>Name</Text>
+          <TouchableOpacity style={styles.selectContainer}>
+            <View style={styles.netflixImageContainer}>
+              <Image source={require('../assets/images/netflix.png')} />
+            </View>
+            <View>
+              <ChevDownDarkIcon />
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Text style={styles.labelText}>amount</Text>
+          <View
+            style={
+              state === '1'
+                ? styles.textInputContainerHovered
+                : styles.textInputContainer
+            }>
+            <TextInput
+              onFocus={() => setState('1')}
+              onBlur={() => setState('0')}
+              style={styles.textInput}
+              keyboardType="numeric"
+              placeholder="$ 48.00"
+              placeholderTextColor={state === '1' ? COLOR.green : COLOR.lowDark}
+              maxLength={10}
+            />
+            <Text
               style={
                 state === '1'
-                  ? styles.textInputContainerHovered
-                  : styles.textInputContainer
+                  ? [styles.inputText, {color: COLOR.green}]
+                  : styles.inputText
               }>
-              <TextInput
-                onFocus={() => setState('1')}
-                onBlur={() => setState('0')}
-                style={styles.textInput}
-                keyboardType="numeric"
-                placeholder="$ 48.00"
-                placeholderTextColor={
-                  state === '1' ? COLOR.green : COLOR.lowDark
-                }
-                maxLength={10}
-              />
-              <Text
-                style={
-                  state === '1'
-                    ? [styles.inputText, {color: COLOR.green}]
-                    : styles.inputText
-                }>
-                Clear
-              </Text>
-            </View>
+              Clear
+            </Text>
           </View>
-          <View>
-            <Text style={styles.labelText}>Date</Text>
-            <View
-              style={
-                state === '2'
-                  ? styles.textInputContainerHovered
-                  : styles.textInputContainer
-              }>
-              <TextInput
-                onFocus={() => setState('2')}
-                onBlur={() => setState('0')}
-                style={styles.textInput}
-                // keyboardType="numeric"
-                placeholder="Tue, 22 Feb 2022"
-                placeholderTextColor={
-                  state === '2' ? COLOR.green : COLOR.lowDark
-                }
-                maxLength={20}
-              />
-              {state === '2' ? <CalendarGreenIcon /> : <CalendarIcon />}
-            </View>
+        </View>
+        <View>
+          <Text style={styles.labelText}>Date</Text>
+          <View
+            style={
+              state === '2'
+                ? styles.textInputContainerHovered
+                : styles.textInputContainer
+            }>
+            <TextInput
+              onFocus={() => setState('2')}
+              onBlur={() => setState('0')}
+              style={styles.textInput}
+              placeholder="Tue, 22 Feb 2022"
+              placeholderTextColor={state === '2' ? COLOR.green : COLOR.lowDark}
+              maxLength={20}
+            />
+            {state === '2' ? <CalendarGreenIcon /> : <CalendarIcon />}
           </View>
-          <View>
-            <Text style={styles.labelText}>Invoice</Text>
-            <TouchableOpacity style={styles.invoiceContainer}>
-              <PlusCircleIcon />
-              <Text style={styles.inputText}>Add Invoice</Text>
-            </TouchableOpacity>
-          </View>
+        </View>
+        <View>
+          <Text style={styles.labelText}>Invoice</Text>
+          <TouchableOpacity style={styles.invoiceContainer}>
+            <PlusCircleIcon />
+            <Text style={styles.inputText}>Add Invoice</Text>
+          </TouchableOpacity>
         </View>
       </View>
       {/* main */}
@@ -130,6 +117,9 @@ const AddExpenseScreen = ({navigation}) => {
 export default AddExpenseScreen;
 
 const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   invoiceContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -145,7 +135,6 @@ const styles = StyleSheet.create({
   inputText: {
     fontFamily: FONT_FAMILY.interMedium,
     fontSize: fontPixel(12),
-    // color: COLOR.green,
     textTransform: 'capitalize',
   },
   labelText: {
@@ -247,14 +236,12 @@ const styles = StyleSheet.create({
     width: pixelSizeVertical(32),
   },
   bottomTab: {
-    // width: pixelSizeVertical(439),
     height: pixelSizeVertical(80),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: pixelSizeVertical(22),
     borderRadius: 1,
-    // backgroundColor: COLOR.red,
   },
   bottomTabContainer: {
     backgroundColor: COLOR.white,

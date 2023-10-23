@@ -11,11 +11,11 @@ import React from 'react';
 import GradientBtn from '../component/GradientBtn';
 import ratio from '../styles/consts/ratio';
 import {COLOR, FONT_FAMILY} from '../styles/consts/GlobalStyles';
+import SCREENS from '../library/const/SCREENS';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 
 const OnboardingScreen = ({navigation}) => {
-  const navigate = navigation.navigate;
   return (
     <SafeAreaView>
       <StatusBar hidden />
@@ -36,7 +36,7 @@ const OnboardingScreen = ({navigation}) => {
           <GradientBtn
             navigation={navigation}
             btnTextData={'Get Started'}
-            target={'Home'}
+            target={SCREENS.HOME}
           />
         </View>
         <View>
@@ -52,6 +52,9 @@ const OnboardingScreen = ({navigation}) => {
 export default OnboardingScreen;
 
 const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   textLogin: {
     color: COLOR.green,
     textAlign: 'center',

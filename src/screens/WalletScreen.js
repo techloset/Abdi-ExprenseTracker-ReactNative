@@ -7,7 +7,6 @@ import {
   ImageBackground,
   Image,
   TouchableOpacity,
-  StatusBar,
 } from 'react-native';
 import React, {useState} from 'react';
 import ratio from '../styles/consts/ratio';
@@ -21,6 +20,7 @@ import ChevLeftLightIcon from '../assets/images/Icon/chevLeftLight.svg';
 import AddIcon from '../assets/images/Icon/add.svg';
 import QrIcon from '../assets/images/Icon/qr.svg';
 import PaperPlaneIcon from '../assets/images/Icon/paperPlane.svg';
+import WalletScreenBottomTab from '../component/WalletScreenBottomTab';
 
 const {widthPixel, fontPixel, pixelSizeVertical} = ratio;
 const WalletScreen = ({navigation}) => {
@@ -144,7 +144,7 @@ const WalletScreen = ({navigation}) => {
               })}
             </View>
           ) : (
-            <View style={styles.transListContainer}>
+            <ScrollView contentContainerStyle={styles.transListContainer}>
               {upcomingBills.map((item, index) => {
                 return (
                   <View key={index} style={styles.transList}>
@@ -172,7 +172,7 @@ const WalletScreen = ({navigation}) => {
                   </View>
                 );
               })}
-            </View>
+            </ScrollView>
           )}
         </ScrollView>
 
@@ -180,11 +180,12 @@ const WalletScreen = ({navigation}) => {
       </View>
       {/* main */}
 
+      {/* <WalletScreenBottomTab /> */}
       {/* bottomNav */}
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Home');
             }}>
@@ -194,7 +195,7 @@ const WalletScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Statistics');
             }}>
@@ -204,7 +205,7 @@ const WalletScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Wallet');
             }}>
@@ -214,7 +215,7 @@ const WalletScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Profile');
             }}>
@@ -233,6 +234,9 @@ const WalletScreen = ({navigation}) => {
 export default WalletScreen;
 
 const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   payBtnText: {
     fontSize: fontPixel(16),
     color: COLOR.parrot,
@@ -250,10 +254,10 @@ const styles = StyleSheet.create({
   filteredData: {
     paddingHorizontal: pixelSizeVertical(26),
     marginTop: pixelSizeVertical(20),
+    paddingBottom: pixelSizeVertical(190),
   },
   amount: {
     fontSize: fontPixel(18),
-    // color: COLOR.parrot,
     fontFamily: FONT_FAMILY.interSemiBold,
     letterSpacing: fontPixel(-0.72),
   },
@@ -417,14 +421,12 @@ const styles = StyleSheet.create({
     width: pixelSizeVertical(32),
   },
   bottomTab: {
-    // width: pixelSizeVertical(439),
     height: pixelSizeVertical(80),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: pixelSizeVertical(22),
     borderRadius: 1,
-    // backgroundColor: COLOR.red,
   },
   bottomTabContainer: {
     backgroundColor: COLOR.white,

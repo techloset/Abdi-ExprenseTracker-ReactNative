@@ -4,7 +4,6 @@ import {
   View,
   SafeAreaView,
   ScrollView,
-  ImageBackground,
   Image,
   TouchableOpacity,
   StatusBar,
@@ -179,7 +178,7 @@ const StatisticsScreen = ({navigation}) => {
       <View style={styles.bottomTabContainer}>
         <View style={styles.bottomTab}>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Home');
             }}>
@@ -189,7 +188,7 @@ const StatisticsScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Statistics');
             }}>
@@ -199,7 +198,7 @@ const StatisticsScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Wallet');
             }}>
@@ -209,7 +208,7 @@ const StatisticsScreen = ({navigation}) => {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{padding: pixelSizeVertical(10)}}
+            style={styles.paddingTen}
             onPress={() => {
               navigation.navigate('Profile');
             }}>
@@ -228,6 +227,9 @@ const StatisticsScreen = ({navigation}) => {
 export default StatisticsScreen;
 
 const styles = StyleSheet.create({
+  paddingTen: {
+    padding: pixelSizeVertical(10),
+  },
   amountCen: {
     fontSize: fontPixel(18),
     color: COLOR.white,
@@ -406,14 +408,12 @@ const styles = StyleSheet.create({
     width: pixelSizeVertical(32),
   },
   bottomTab: {
-    // width: pixelSizeVertical(439),
     height: pixelSizeVertical(80),
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: pixelSizeVertical(22),
     borderRadius: 1,
-    // backgroundColor: COLOR.red,
   },
   bottomTabContainer: {
     backgroundColor: COLOR.white,
@@ -426,7 +426,5 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLOR.white,
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
   },
 });

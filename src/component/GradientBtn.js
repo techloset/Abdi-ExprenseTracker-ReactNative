@@ -46,7 +46,5 @@ const styles = StyleSheet.create({
     lineHeight: fontPixel(38),
     fontSize: fontPixel(18),
   },
-  btnShadow: {
-    // paddingBottom: 10,
-  },
+  btnShadow: {},
 });
