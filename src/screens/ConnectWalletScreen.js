@@ -108,22 +108,20 @@ const ConnectWalletScreen = ({navigation}) => {
             </View>
             {/* inputs */}
             <View style={styles.inputsContainer}>
-              <View style={styles.singleInputContainer}>
+              <ImageBackground
+                style={styles.singleInputContainer}
+                source={require('../assets/images/input.png')}>
                 <TextInput
                   onFocus={() => setState('1')}
                   onBlur={() => setState('0')}
-                  style={
-                    state === '1'
-                      ? [styles.textInput, styles.textInputsCommonHovered]
-                      : [styles.textInput, styles.textInputsCommon]
-                  }
+                  style={styles.singleInput}
                   placeholder="NAME ON CARD"
                   placeholderTextColor={
                     state === '1' ? COLOR.green : COLOR.lowDark
                   }
                   maxLength={20}
                 />
-              </View>
+              </ImageBackground>
               <View style={styles.doubleInputContainer}>
                 <TextInput
                   onFocus={() => setState('2')}
@@ -303,10 +301,11 @@ const styles = StyleSheet.create({
     marginTop: pixelSizeVertical(100),
   },
   accountDesc: {
-    width: widthPixel(149),
+    width: widthPixel(164),
     color: COLOR.lowDark,
     fontFamily: FONT_FAMILY.interMedium,
     fontSize: fontPixel(12),
+    lineHeight: fontPixel(14),
   },
   accountTitle: {
     color: COLOR.lowDark,
@@ -384,7 +383,20 @@ const styles = StyleSheet.create({
     letterSpacing: fontPixel(-0.14),
     fontSize: fontPixel(14),
   },
-  singleInputContainer: {},
+  singleInputContainer: {
+    width: widthPixel(366),
+    height: widthPixel(64),
+    alignSelf: 'center',
+    justifyContent: 'center',
+  },
+  singleInput: {
+    width: widthPixel(366),
+    height: widthPixel(64),
+    alignSelf: 'center',
+    justifyContent: 'center',
+    paddingTop: pixelSizeVertical(20),
+    paddingStart: pixelSizeVertical(20),
+  },
   inputsContainer: {
     justifyContent: 'center',
     alignItems: 'center',

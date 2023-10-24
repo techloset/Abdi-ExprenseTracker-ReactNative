@@ -84,7 +84,7 @@ const StatisticsScreen = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-      <View style={{alignItems: 'flex-end'}}>
+      <View style={styles.selectContainerMain}>
         <TouchableOpacity style={styles.selectContainer}>
           <Text style={styles.selectText}>Expense</Text>
           <ChevDownDarkIcon />
@@ -166,12 +166,12 @@ const StatisticsScreen = ({navigation}) => {
               />
             </View>
             <View style={styles.spenContainer}>
-              <Text style={styles.titleCen}>Starbucks</Text>
-              <Text style={styles.dateCen}>Jan 12, 2022</Text>
+              <Text style={styles.titleCen}>Transfer</Text>
+              <Text style={styles.dateCen}>Yesterday</Text>
             </View>
           </View>
           <View>
-            <Text style={styles.amountCen}>- $ 150.00</Text>
+            <Text style={styles.amountCen}>- $ 85.00</Text>
           </View>
         </View>
         {/* LI */}
@@ -185,12 +185,12 @@ const StatisticsScreen = ({navigation}) => {
               />
             </View>
             <View style={styles.spenContainer}>
-              <Text style={styles.title}>Starbucks</Text>
-              <Text style={styles.date}>Jan 12, 2022</Text>
+              <Text style={styles.title}>Youtube</Text>
+              <Text style={styles.date}>Jan 16, 2022</Text>
             </View>
           </View>
           <View>
-            <Text style={styles.amount}>- $ 150.00</Text>
+            <Text style={styles.amount}>- $ 11.99</Text>
           </View>
         </View>
         {/* LI */}
@@ -357,6 +357,10 @@ const styles = StyleSheet.create({
     width: widthPixel(120),
     height: widthPixel(40),
     marginRight: pixelSizeVertical(24),
+  },
+  selectContainerMain: {
+    alignItems: 'flex-end',
+    marginTop: pixelSizeVertical(23),
   },
   selectText: {
     color: COLOR.lowDark,

@@ -46,8 +46,11 @@ const AddExpenseScreen = ({navigation}) => {
       <View style={styles.mainContainer}>
         <Text style={styles.labelText}>Name</Text>
         <TouchableOpacity style={styles.selectContainer}>
-          <View style={styles.netflixImageContainer}>
-            <Image source={require('../assets/images/netflix.png')} />
+          <View style={styles.netflixContainer}>
+            <View style={styles.netflixImageContainer}>
+              <Image source={require('../assets/images/netflix.png')} />
+            </View>
+            <Text style={styles.netflixText}>Netflix</Text>
           </View>
           <ChevDownDarkIcon />
         </TouchableOpacity>
@@ -96,7 +99,7 @@ const AddExpenseScreen = ({navigation}) => {
         <Text style={styles.labelText}>Invoice</Text>
         <TouchableOpacity style={styles.invoiceContainer}>
           <PlusCircleIcon />
-          <Text style={styles.inputText}>Add Invoice</Text>
+          <Text style={styles.netflixText}>Add Invoice</Text>
         </TouchableOpacity>
       </View>
       {/* main */}
@@ -168,11 +171,28 @@ const styles = StyleSheet.create({
     width: '70%',
     height: '100%',
   },
+  netflixText: {
+    fontFamily: FONT_FAMILY.interSemiBold,
+    letterSpacing: fontPixel(-0.14),
+    fontSize: fontPixel(14),
+    color: COLOR.lowDark,
+  },
+  invoiceText: {
+    fontFamily: FONT_FAMILY.interSemiBold,
+    letterSpacing: fontPixel(0.84),
+    fontSize: fontPixel(14),
+    color: COLOR.lowDark,
+  },
   netflixImageContainer: {
     borderRadius: widthPixel(50),
     elevation: widthPixel(12),
     borderColor: COLOR.white,
     borderWidth: widthPixel(2),
+  },
+  netflixContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: pixelSizeVertical(14),
   },
   selectContainer: {
     flexDirection: 'row',

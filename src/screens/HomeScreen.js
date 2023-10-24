@@ -318,6 +318,9 @@ const styles = StyleSheet.create({
     letterSpacing: fontPixel(-0.9),
     opacity: 0.7,
   },
+  inExContainers: {
+    gap: pixelSizeVertical(3),
+  },
   arrowIcon: {
     width: widthPixel(18),
     height: widthPixel(18),
@@ -326,18 +329,18 @@ const styles = StyleSheet.create({
     height: pixelSizeVertical(24),
     width: pixelSizeVertical(24),
     backgroundColor: 'rgba(255, 255, 255, 0.15)',
-    borderRadius: 40,
+    borderRadius: widthPixel(40),
     justifyContent: 'center',
     alignItems: 'center',
   },
   inExContainers_secondary: {
     flexDirection: 'row',
-    gap: 6,
+    gap: pixelSizeVertical(6),
   },
   balanceBottom: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: pixelSizeVertical(20),
+    marginTop: pixelSizeVertical(30),
   },
   total: {
     fontSize: fontPixel(30),

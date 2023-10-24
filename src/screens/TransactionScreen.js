@@ -105,7 +105,7 @@ const TransactionScreen = ({navigation, route}) => {
           <View style={styles.optionsContainer}>
             <View style={styles.option}>
               <Text style={styles.leftText}>
-                {item.color === 'red' ? 'Earnings' : 'Spending'}
+                {item.color !== 'red' ? 'Earnings' : 'Spending'}
               </Text>
               <Text style={styles.rightText}>{item.total}</Text>
             </View>
@@ -117,8 +117,8 @@ const TransactionScreen = ({navigation, route}) => {
           <View style={styles.line} />
           <View style={styles.optionsContainer}>
             <View style={styles.option}>
-              <Text style={styles.leftTextTotal}>Date</Text>
-              <Text style={styles.rightTextTotal}>{item.date}</Text>
+              <Text style={styles.leftTextTotal}>Total</Text>
+              <Text style={styles.rightTextTotal}>{item.total}</Text>
             </View>
           </View>
           <View style={styles.buttonContainer}>
