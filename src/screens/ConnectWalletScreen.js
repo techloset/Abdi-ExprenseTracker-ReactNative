@@ -262,6 +262,16 @@ const ConnectWalletScreen = ({navigation}) => {
                           }>
                           {item.desc}
                         </Text>
+                        {index == 0 && (
+                          <Text
+                            style={
+                              index == radio
+                                ? [styles.accountDesc, {color: COLOR.green}]
+                                : styles.accountDesc
+                            }>
+                            {item.desc1}
+                          </Text>
+                        )}
                       </View>
                       <View style={index !== radio && {opacity: 0}}>
                         {item.checkIcon}

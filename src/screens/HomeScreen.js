@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
     marginTop: pixelSizeVertical(15),
     flexDirection: 'row',
     justifyContent: 'space-between',
-    height: widthPixel(0),
+    paddingBottom: pixelSizeVertical(99),
   },
   amount: {
     fontSize: fontPixel(18),
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
   },
   secondContainer: {
     paddingHorizontal: pixelSizeVertical(22),
-    height: widthPixel(500),
+    height: widthPixel(520),
   },
   totalInEx: {
     fontSize: fontPixel(20),

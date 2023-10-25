@@ -7,7 +7,8 @@ const accounts = [
   {
     svg: <BankIcon width={36} />,
     title: 'Bank Link',
-    desc: 'Connect your bank          account to deposit & fund',
+    desc: 'Connect your bank ',
+    desc1: 'account to deposit & fund',
     checkIcon: <CheckIcon />,
   },
   {
